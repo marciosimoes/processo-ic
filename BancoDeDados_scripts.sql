@@ -53,3 +53,31 @@ CHARACTER SET utf8
 FIELDS TERMINATED BY ';'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
+
+-- Query resposta da primeira pergunta
+SELECT 
+    o.razao_social,
+    d.reg_ans,
+    sum(d.vl_saldo_final - d.vl_saldo_inicial) as df_total
+FROM demonstracoes_contabeis d
+INNER JOIN operadoras_ativas o
+ON d.reg_ans = o.registro_ans
+WHERE d.data = "2022-07-01"
+AND d.descricao = "EVENTOS/ SINISTROS CONHECIDOS OU AVISADOS  DE ASSISTÊNCIA A SAÚDE MEDICO HOSPITALAR"
+GROUP BY d.reg_ans
+ORDER BY df_total DESC
+LIMIT 10;
+
+-- Query resposta da segunda pergunta
+SELECT 
+    o.razao_social,
+    d.reg_ans,
+    sum(d.vl_saldo_final - d.vl_saldo_inicial) as df_total
+FROM demonstracoes_contabeis d
+INNER JOIN operadoras_ativas o
+ON d.reg_ans = o.registro_ans
+WHERE d.data IN ("2022-07-01","2022-04-01","2022-01-01","2021-10-01")
+AND d.descricao = "EVENTOS/ SINISTROS CONHECIDOS OU AVISADOS  DE ASSISTÊNCIA A SAÚDE MEDICO HOSPITALAR"
+GROUP BY d.reg_ans
+ORDER BY df_total DESC
+LIMIT 10;
