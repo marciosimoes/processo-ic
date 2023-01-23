@@ -40,4 +40,8 @@ def buscar():
     query = request.args.get('query')
     query = check_query(query)
     results = execute_query(query)
-    return jsonify_result(results)
+
+    response = jsonify_result(results)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+
+    return response
