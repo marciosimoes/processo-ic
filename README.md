@@ -14,3 +14,8 @@ Justificativas: https://github.com/marciosimoes/processo-ic/blob/main/teste2-Tra
 
 Script: https://github.com/marciosimoes/processo-ic/blob/main/BancoDeDados_scripts.sql<br>
 Justificativas: https://github.com/marciosimoes/processo-ic/blob/main/teste3-BancoDeDados.ipynb
+
+- Teste 4 - API
+
+Scripts: https://github.com/marciosimoes/processo-ic/tree/main/teste4-API<br>
+Justificativas: https://github.com/marciosimoes/processo-ic/blob/main/teste4-API.ipynb
